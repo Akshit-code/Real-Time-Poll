@@ -1,0 +1,40 @@
+# Node modules for both frontend and backend
+frontend/node_modules/
+backend/node_modules/
+
+# Environment variables for both frontend and backend
+frontend/.env
+backend/.env
+
+# Logs for both frontend and backend
+frontend/*.log
+backend/*.log
+
+# Build directories for frontend
+frontend/dist/
+frontend/build/
+frontend/public/
+
+# Temporary files
+frontend/tmp/
+frontend/temp/
+frontend/.cache/
+backend/tmp/
+backend/temp/
+backend/.cache/
+
+# Editor directories and files
+frontend/.vscode/
+frontend/.idea/
+backend/.vscode/
+backend/.idea/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Coverage directory for frontend (if using testing tools)
+frontend/coverage/
+
+# Coverage directory for backend (if using testing tools)
+backend/coverage/

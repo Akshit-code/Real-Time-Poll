@@ -1,0 +1,23 @@
+/* Poll Results Page Styles */
+.poll-results {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.poll-results h2 {
+  margin-bottom: 20px;
+}
+
+.poll-results .option {
+  background-color: #f4f4f4;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.poll-results .option span {
+  display: inline-block;
+  margin-right: 10px;
+}

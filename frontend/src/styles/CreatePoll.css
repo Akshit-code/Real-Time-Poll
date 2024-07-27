@@ -1,0 +1,34 @@
+/* Create Poll Page Styles */
+.create-poll {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.create-poll h2 {
+  margin-bottom: 20px;
+}
+
+.create-poll input[type="text"],
+.create-poll textarea {
+  margin-bottom: 15px;
+}
+
+.create-poll .options {
+  margin-bottom: 15px;
+}
+
+.create-poll .option {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.create-poll .option input[type="text"] {
+  margin-right: 10px;
+}
+
+.create-poll button {
+  background-color: #007bff;
+}

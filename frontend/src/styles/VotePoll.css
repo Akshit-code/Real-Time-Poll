@@ -1,0 +1,28 @@
+/* Vote Poll Page Styles */
+.vote-poll {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.vote-poll h2 {
+  margin-bottom: 20px;
+}
+
+.vote-poll .poll-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.vote-poll .poll-item {
+  background-color: #f9f9f9;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.vote-poll .poll-item button {
+  background-color: #28a745;
+}
