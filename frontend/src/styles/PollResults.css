@@ -1,23 +1,60 @@
-/* Poll Results Page Styles */
 .poll-results {
-  background-color: #fff;
+  max-width: 600px;
+  margin: 0 auto;
   padding: 20px;
+  background-color: #fff;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
 .poll-results h2 {
+  color: #333;
+  font-size: 24px;
   margin-bottom: 20px;
 }
 
-.poll-results .option {
-  background-color: #f4f4f4;
-  padding: 10px;
-  border-radius: 5px;
-  margin-bottom: 10px;
+.poll-results h3 {
+  color: #555;
+  font-size: 20px;
+  margin-bottom: 20px;
 }
 
-.poll-results .option span {
-  display: inline-block;
-  margin-right: 10px;
+.results {
+  margin-bottom: 20px;
+}
+
+.result {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  background-color: #f9f9f9;
+}
+
+.option-text {
+  font-size: 16px;
+  color: #333;
+}
+
+.votes {
+  font-weight: bold;
+  color: #007bff;
+}
+
+.back-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: #0056b3;
 }

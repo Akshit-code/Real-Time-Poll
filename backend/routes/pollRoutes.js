@@ -1,20 +1,21 @@
 const express = require('express');
 const router = express.Router();
 const pollController = require('../controllers/pollController');
+const authMiddleware = require('../middleware/authMiddleware'); // Import the authMiddleware
 
-// Create a new poll
-router.post('/create', pollController.createPoll);
+// Get All polls
+router.get("/polllist", pollController.getAllPolls);
 
-// Vote in a poll
-router.post('/:pollId/vote', pollController.votePoll);
+// Create a new poll (requires authentication)
+router.post('/create', authMiddleware, pollController.createPoll);
+
+// Vote in a poll (requires authentication)
+router.post('/:pollId/vote', authMiddleware, pollController.votePoll);
 
 // Get Current Selected Poll
 router.get("/:pollId", pollController.getPollById);
 
 // Get poll results
 router.get('/results/:pollId', pollController.getPollResults);
-
-// Get All polls
-router.get("/polllist", pollController.getAllPolls);
 
 module.exports = router;

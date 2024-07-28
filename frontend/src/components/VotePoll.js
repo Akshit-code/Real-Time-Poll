@@ -23,6 +23,8 @@ const VotePoll = () => {
   }, [pollId]);
 
   const handleVote = async () => {
+    if (!selectedOption) return;
+
     try {
       await castVote(pollId, selectedOption);
       alert('Vote cast successfully!');
@@ -32,25 +34,36 @@ const VotePoll = () => {
     }
   };
 
+  const handleBackToPolls = () => {
+    history.push('/polllist');
+  };
+
   if (!poll) return <div>Loading...</div>;
 
   return (
     <div className="vote-poll">
       <h2>{poll.question}</h2>
-      <ul>
-        {poll.options.map((option) => (
-          <li key={option._id}>
-            <input
-              type="radio"
-              value={option._id}
-              onChange={(e) => setSelectedOption(e.target.value)}
-              name="pollOption"
-            />
-            {option.text}
-          </li>
+      <div className="options">
+        {poll.options.map((option, index) => (
+          <div key={index} className="option">
+            <label>
+              <input
+                type="radio"
+                name="option"
+                value={option._id}
+                onChange={() => setSelectedOption(option._id)}
+              />
+              {option.text}
+            </label>
+          </div>
         ))}
-      </ul>
-      <button onClick={handleVote} disabled={!selectedOption}>Vote</button>
+      </div>
+      <button className="vote-button" onClick={handleVote} disabled={!selectedOption}>
+        Vote
+      </button>
+      <button className="back-button" onClick={handleBackToPolls}>
+        Back to Available Polls
+      </button>
     </div>
   );
 };

@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { createPoll } from '../services/pollService';
+import { useHistory } from 'react-router-dom';
 import '../styles/CreatePoll.css';
 
 const CreatePoll = () => {
   const [question, setQuestion] = useState('');
   const [options, setOptions] = useState(['', '']);
+  const history = useHistory();
 
   const addOption = () => {
     setOptions([...options, '']);
@@ -28,8 +30,12 @@ const CreatePoll = () => {
     }
   };
 
+  const handleCancel = () => {
+    history.push('/polllist');
+  };
+
   return (
-    <div className="container">
+    <div className="create-poll">
       <h2>Create a New Poll</h2>
       <input
         type="text"
@@ -46,8 +52,11 @@ const CreatePoll = () => {
           onChange={(e) => handleOptionChange(index, e.target.value)}
         />
       ))}
-      <button onClick={addOption}>Add Option</button>
-      <button onClick={handleSubmit}>Create Poll</button>
+      <div className="button-group">
+        <button className="add-option-button" onClick={addOption}>Add Option</button>
+        <button className="submit-button" onClick={handleSubmit}>Create Poll</button>
+        <button className="cancel-button" onClick={handleCancel}>Cancel</button>
+      </div>
     </div>
   );
 };

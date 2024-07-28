@@ -6,6 +6,9 @@ import PollResults from './pages/PollResults';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import HomePage from "./pages/HomePage";
+import PollList from "./pages/PollList";
+import UserProfile from './pages/UserProfile'
+
 import { AuthContext } from './context/AuthContext';
 
 import './styles/global.css';
@@ -20,6 +23,8 @@ function App() {
         <PrivateRoute path="/create" component={CreatePoll} isAuthenticated={!!user} />
         <PrivateRoute path="/vote/:pollId" component={VotePoll} isAuthenticated={!!user} />
         <PrivateRoute path="/results/:pollId" component={PollResults} isAuthenticated={!!user} />
+        <PrivateRoute path="/polllist" component={PollList} isAuthenticated={!!user} />
+        <PrivateRoute path="/profile" component={UserProfile} isAuthenticated={!!user} /> 
         <Route path="/" exact component={HomePage} />
       </Switch>
     </Router>

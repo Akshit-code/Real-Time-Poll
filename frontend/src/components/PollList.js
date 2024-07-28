@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { getPolls } from '../services/pollService';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import Navbar from '../components/Navbar';
 import '../styles/PollList.css';
 
 const PollList = () => {
   const [polls, setPolls] = useState([]);
+  const history = useHistory();
 
   useEffect(() => {
     const fetchPolls = async () => {
@@ -19,9 +21,16 @@ const PollList = () => {
     fetchPolls();
   }, []);
 
+  const handleCreatePoll = () => {
+    history.push('/create');
+  };
+
   return (
+    <>
+    <Navbar/>
     <div className="poll-list">
       <h2>Available Polls</h2>
+      <button className="create-poll-button" onClick={handleCreatePoll}>Create Poll</button>
       <ul>
         {polls.map(poll => (
           <li key={poll._id}>
@@ -30,6 +39,7 @@ const PollList = () => {
         ))}
       </ul>
     </div>
+    </>
   );
 };
 

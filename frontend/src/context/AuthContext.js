@@ -21,6 +21,7 @@ const AuthProvider = ({ children }) => {
       const response = await axios.post('http://localhost:3000/api/auth/login', { username, password });
       const { token, user } = response.data;
       localStorage.setItem('token', token);
+      localStorage.setItem('user', user);
       setAuthToken(token);
       setUser(user);
       // Optionally fetch user info and set it to user state

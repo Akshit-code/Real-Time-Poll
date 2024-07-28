@@ -1,4 +1,4 @@
-const User = require("../models/user");
+const User = require('../models/User');
 const bcrypt = require ('bcrypt');
 const jwt = require('jsonwebtoken');
 
@@ -42,7 +42,7 @@ exports.signup = async (req, res) => {
   
       const token = jwt.sign({ id: user._id }, JWT_SECRET, { expiresIn: '1h' });
   
-      res.json({ token });
+      res.json({ token, user });
     } catch (error) {
       res.status(500).json({ message: 'Error logging in', error });
     }

@@ -8,8 +8,8 @@ const bodyParser = require('body-parser');
 require('dotenv').config();
 
 const pollRoutes = require('./routes/pollRoutes');
-const Poll = require('./models/Poll');
 const authRoutes = require('./routes/auth');
+const userRoutes = require('./routes/userRoutes');
 const authMiddleware = require('./middleware/authMiddleware');
 
 const app = express();
@@ -33,6 +33,7 @@ app.use(express.json());
 // Routes
 app.use('/api/polls', pollRoutes);
 app.use('/api/auth', authRoutes);
+app.use('/api/users', userRoutes);
 
 app.get('/api/protected', authMiddleware, (req, res) => {
   res.json({ message: 'This is a protected route' });

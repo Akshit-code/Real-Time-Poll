@@ -9,12 +9,12 @@ const Signup = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const { signup } = useContext(AuthContext);
-  const history = useHistory
+  const history = useHistory()
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     await signup(username, email, password);
-    history.push('/polllist');
+    history.push('/login');
     // Optionally redirect or show a success message
   };
 
