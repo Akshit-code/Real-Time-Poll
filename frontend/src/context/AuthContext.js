@@ -1,6 +1,8 @@
 import React, { createContext, useState, useEffect } from 'react';
 import axios from 'axios';
 
+const apiUrl = process.env.REACT_APP_API_URL;
+
 const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
@@ -18,7 +20,7 @@ const AuthProvider = ({ children }) => {
 
   const login = async (username, password) => {
     try {
-      const response = await axios.post('http://localhost:3000/api/auth/login', { username, password });
+      const response = await axios.post(`${apiUrl}/api/auth/login`, { username, password });
       const { token, user } = response.data;
       localStorage.setItem('token', token);
       localStorage.setItem('user', user);
@@ -32,7 +34,7 @@ const AuthProvider = ({ children }) => {
 
   const signup = async (username, email, password) => {
     try {
-      await axios.post('http://localhost:3000/api/auth/signup', { username, email, password });
+      await axios.post(`${apiUrl}/api/auth/signup`, { username, email, password });
       // Optionally log in the user after signup
     } catch (error) {
       console.error('Signup error:', error);
