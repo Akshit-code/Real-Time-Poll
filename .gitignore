@@ -13,7 +13,6 @@ backend/*.log
 # Build directories for frontend
 frontend/dist/
 frontend/build/
-frontend/public/
 
 # Temporary files
 frontend/tmp/

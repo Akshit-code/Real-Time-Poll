@@ -93,7 +93,7 @@ const getPollResults = async (req, res) => {
 
 const getAllPolls = async (req, res) => {
   try {
-    const polls = await Poll.find(); // Fetch all polls
+    const polls = await Poll.find(); 
     res.status(200).json(polls);
   } catch (error) {
     console.error(error);
@@ -117,7 +117,7 @@ const getPollById = async (req, res) => {
 // Get all polls created by a user
 const getCreatedPollsByUser = async (req, res) => {
   try {
-    const userId = req.userId; // Get the user ID from the request (assumes authentication middleware)
+    const userId = req.userId; 
     const user = await User.findById(userId).populate('createdPolls');
     if (!user) return res.status(404).json({ message: 'User not found' });
 
@@ -130,7 +130,7 @@ const getCreatedPollsByUser = async (req, res) => {
 // Get all polls voted on by a user
 const getVotedPollsByUser = async (req, res) => {
   try {
-    const userId = req.userId; // Get the user ID from the request (assumes authentication middleware)
+    const userId = req.userId;
     const user = await User.findById(userId).populate('votedPolls');
     if (!user) return res.status(404).json({ message: 'User not found' });
 
