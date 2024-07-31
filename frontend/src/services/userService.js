@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:3000/api/users'; // Base URL for user-related APIs
+const apiUrl = process.env.REACT_APP_API_URL;
+const API_URL = `${apiUrl}/api/users`; 
 
 // Function to upload profile picture
 export const uploadProfilePicture = async (userId, formData) => {

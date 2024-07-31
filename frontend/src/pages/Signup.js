@@ -15,7 +15,6 @@ const Signup = () => {
     event.preventDefault();
     await signup(username, email, password);
     history.push('/login');
-    // Optionally redirect or show a success message
   };
 
   return (

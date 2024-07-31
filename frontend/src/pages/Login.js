@@ -14,7 +14,6 @@ const Login = () => {
     event.preventDefault();
     await login(username, password);
     history.push('/polllist');
-    // Optionally redirect or show a success message
   };
 
   return (

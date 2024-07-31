@@ -24,7 +24,7 @@ const CreatePoll = () => {
       const formattedOptions = options.map(option => ({ text: option, votes: 0 }));
       const response = await createPoll({ question, options: formattedOptions });
       console.log('Poll created successfully:', response.data);
-      // Handle successful poll creation (e.g., redirect or show a success message)
+      history.push("/polllist");
     } catch (error) {
       console.error('Error creating poll:', error.response ? error.response.data : error.message);
     }
