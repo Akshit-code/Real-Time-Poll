@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const apiUrl = process.env.REACT_APP_API_URL;
-const API_URL = `${apiUrl}/api/users`; 
+const API_URL = `${apiUrl}/api/polls`; 
 
 export const createPoll = async (pollData) => {
   return await axios.post(`${API_URL}/create`, pollData);

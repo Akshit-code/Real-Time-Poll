@@ -8,7 +8,7 @@ const UserProfile = () => {
   const [profilePic, setProfilePic] = useState(user.profilePicture || '');
   const [createdPolls, setCreatedPolls] = useState([]);
   const [votedPolls, setVotedPolls] = useState([]);
-  const [activeTab, setActiveTab] = useState('created');
+  const [activeTab, setActiveTab] = useState("");
 
   useEffect(() => {
     if (activeTab === 'created') {
@@ -17,15 +17,15 @@ const UserProfile = () => {
       fetchVotedPolls();
     }
     // Cleanup function
-    return () => {
-      setCreatedPolls([]);
-      setVotedPolls([]);
-    };
-  });
+    // return () => {
+    //   setCreatedPolls([]);
+    //   setVotedPolls([]);
+    // };
+  }, [activeTab]);
 
   const fetchCreatedPolls = async () => {
     try {
-      const response = await getUserCreatedPolls(user._id);
+      const response = await getUserCreatedPolls();
       setCreatedPolls(response);
     } catch (error) {
       console.error('Error fetching created polls:', error);
@@ -34,7 +34,7 @@ const UserProfile = () => {
 
   const fetchVotedPolls = async () => {
     try {
-      const response = await getUserVotedPolls(user._id);
+      const response = await getUserVotedPolls();
       setVotedPolls(response);
     } catch (error) {
       console.error('Error fetching voted polls:', error);
@@ -96,7 +96,7 @@ const UserProfile = () => {
             ) : (
               votedPolls.map((poll) => (
                 <div key={poll._id} className="poll-item">
-                  <h3>{poll.question}</h3>
+                  {/* <h3>{poll.question}</h3> */}
                   {poll.options.map((option) => (
                     <div key={option._id}>
                       {option.text} - {option.votes} votes

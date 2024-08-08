@@ -21,10 +21,10 @@ export const uploadProfilePicture = async (userId, formData) => {
 };
 
 // Function to fetch polls created by the user
-export const getUserCreatedPolls = async (userId) => {
+export const getUserCreatedPolls = async () => {
   try {
     const token = localStorage.getItem('token');
-    const response = await axios.get(`${API_URL}/${userId}/created-polls`, {
+    const response = await axios.get(`${API_URL}/created-polls`, {
       headers: {
         'Authorization': `Bearer ${token}`
       }
@@ -37,10 +37,10 @@ export const getUserCreatedPolls = async (userId) => {
 };
 
 // Function to fetch polls voted by the user
-export const getUserVotedPolls = async (userId) => {
+export const getUserVotedPolls = async () => {
   try {
     const token = localStorage.getItem('token');
-    const response = await axios.get(`${API_URL}/${userId}/voted-polls`, {
+    const response = await axios.get(`${API_URL}/voted-polls`, {
       headers: {
         'Authorization': `Bearer ${token}`
       }
